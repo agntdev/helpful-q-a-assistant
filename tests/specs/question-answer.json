@@ -1,0 +1,82 @@
+[
+  {
+    "name": "greeting receives a helpful response",
+    "steps": [
+      {
+        "send": { "text": "Hello" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Hello! Ask me anything and I'll help you out."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "capital city question receives correct answer",
+    "steps": [
+      {
+        "send": { "text": "What is the capital of France?" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Paris."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "math question receives calculated answer",
+    "steps": [
+      {
+        "send": { "text": "What is 2 + 3?" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "5"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "thank you message receives acknowledgment",
+    "steps": [
+      {
+        "send": { "text": "Thanks" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "You're welcome! Let me know if you have any other questions."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "unknown question receives helpful response",
+    "steps": [
+      {
+        "send": { "text": "Tell me about quantum physics" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "I'd recommend checking Wikipedia or a specialized resource for information about \"quantum physics\"."
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

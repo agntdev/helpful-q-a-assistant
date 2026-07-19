@@ -1,19 +1,65 @@
 [
   {
-    "name": "/settings",
+    "name": "/settings shows brevity preference options",
     "steps": [
       {
+        "send": { "text": "/settings" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Adjust answer brevity preference (Short/Detailed)"
+              "text": "⚙️ Answer preferences\n\nChoose how detailed you'd like my answers to be:"
             }
           }
-        ],
-        "send": {
-          "text": "/settings"
-        }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "settings button opens settings from menu",
+    "steps": [
+      {
+        "send": { "callback": "settings:show" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": {
+              "text": "⚙️ Answer preferences\n\nChoose how detailed you'd like my answers to be:"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "selecting short preference updates the display",
+    "steps": [
+      {
+        "send": { "callback": "settings:short" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": {
+              "text": "⚙️ Answer preferences\n\nChoose how detailed you'd like my answers to be:"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "selecting detailed preference updates the display",
+    "steps": [
+      {
+        "send": { "callback": "settings:detailed" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": {
+              "text": "⚙️ Answer preferences\n\nChoose how detailed you'd like my answers to be:"
+            }
+          }
+        ]
       }
     ]
   }
