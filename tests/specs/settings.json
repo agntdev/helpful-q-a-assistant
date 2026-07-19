@@ -1,0 +1,20 @@
+[
+  {
+    "name": "/settings",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Adjust answer brevity preference (Short/Detailed)"
+            }
+          }
+        ],
+        "send": {
+          "text": "/settings"
+        }
+      }
+    ]
+  }
+]
