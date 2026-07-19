@@ -8,7 +8,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "ℹ️ Tap /start to open the menu, then pick what you want from the buttons.\n\nEverything in this bot is reachable by tapping — you don't need to remember any commands."
+              "text": "ℹ️ How to use this bot:\n\nJust type your question in the chat — I'll answer it right away!\n\nExample prompts:\n• What's the capital of France?\n• How do I reset my password?\n• Explain quantum computing simply\n\nUse the buttons to:\n• Mark answers as helpful or not\n• Report issues for admin review\n• Adjust your answer preferences\n\nCommands:\n• /start — Open the main menu\n• /help — Show this message"
             }
           }
         ]

@@ -1,19 +1,17 @@
 [
   {
-    "name": "Not Useful",
+    "name": "Not Useful feedback shows retry message",
     "steps": [
       {
+        "send": { "callback": "feedback:not_useful" },
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Mark answer as unhelpful"
+              "text": "Sorry I couldn't help. Feel free to rephrase your question or ask something else."
             }
           }
-        ],
-        "send": {
-          "callback": "feedback:not_useful"
-        }
+        ]
       }
     ]
   }

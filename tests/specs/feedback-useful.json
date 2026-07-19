@@ -1,19 +1,17 @@
 [
   {
-    "name": "Useful",
+    "name": "Useful feedback shows thank you message",
     "steps": [
       {
+        "send": { "callback": "feedback:useful" },
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Mark answer as helpful"
+              "text": "✅ Thanks for your feedback! Glad I could help."
             }
           }
-        ],
-        "send": {
-          "callback": "feedback:useful"
-        }
+        ]
       }
     ]
   }

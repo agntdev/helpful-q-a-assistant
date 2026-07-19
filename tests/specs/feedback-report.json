@@ -1,19 +1,17 @@
 [
   {
-    "name": "Report",
+    "name": "Report feedback shows confirmation message",
     "steps": [
       {
+        "send": { "callback": "feedback:report" },
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Flag answer for admin review"
+              "text": "🚩 Thanks for reporting this. Our team will review it and improve the response."
             }
           }
-        ],
-        "send": {
-          "callback": "feedback:report"
-        }
+        ]
       }
     ]
   }

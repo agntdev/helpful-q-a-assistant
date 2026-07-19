@@ -1,17 +1,20 @@
 import { Composer } from "grammy";
+import type { Ctx } from "../bot.js";
 
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
-// Menu: wire this into /start via registerMainMenuItem({ label: "Report", data: "feedback:report" }) if the toolkit exposes it.
-
-const composer = new Composer();
+const composer = new Composer<Ctx>();
 
 composer.callbackQuery("feedback:report", async (ctx) => {
   await ctx.answerCallbackQuery();
-  await ctx.reply("Flag answer for admin review");
+  const userId = ctx.from?.id ?? "unknown";
+  const timestamp = new Date().toISOString();
+
+  // Log the report (in production, this would send to admin group)
+  console.log(`[REPORT] User: ${userId}, Time: ${timestamp}`);
+
+  await ctx.editMessageText(
+    "🚩 Thanks for reporting this. Our team will review it and improve the response.",
+    { reply_markup: { inline_keyboard: [] } },
+  );
 });
 
 export default composer;

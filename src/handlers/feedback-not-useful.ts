@@ -1,17 +1,14 @@
 import { Composer } from "grammy";
+import type { Ctx } from "../bot.js";
 
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
-// Menu: wire this into /start via registerMainMenuItem({ label: "Not Useful", data: "feedback:not_useful" }) if the toolkit exposes it.
-
-const composer = new Composer();
+const composer = new Composer<Ctx>();
 
 composer.callbackQuery("feedback:not_useful", async (ctx) => {
   await ctx.answerCallbackQuery();
-  await ctx.reply("Mark answer as unhelpful");
+  await ctx.editMessageText(
+    "Sorry I couldn't help. Feel free to rephrase your question or ask something else.",
+    { reply_markup: { inline_keyboard: [] } },
+  );
 });
 
 export default composer;
